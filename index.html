@@ -1,0 +1,126 @@
+<!--
+Game:
+Name: HitCounter
+what it does ?
+PlatForm : Firefox OS
+Within 60sec how many times the user can press the 
+button and make the highest score possible
+-->
+
+
+
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Starter Template for Bootstrap 3.3.2</title>
+    <link rel="shortcut icon" href="">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/flipclock.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.95.3/css/materialize.min.css">
+
+    <style>
+        input[type^="text"] {
+            background: transparent;
+            color: #fff;
+            font-size: 52px;
+            border: 0;
+            text-align: center;
+            padding: 20px 0;
+        }
+        
+        .box {
+            position: relative;
+            margin: 0 auto;
+            background: #348AFF;
+            width: 400px;
+            height: 100%;
+        }
+        
+        .bill {
+            padding: 80px 0;
+            background: #464646;
+        }
+        
+        .leader {
+            color: #fff;
+            font: 44px;
+        }
+        
+        .bin {
+            padding: 20px 0;
+        }
+    </style>
+
+    <!--[if IE]>
+        <script src="https://cdn.jsdelivr.net/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="box">
+            <div class="bill">
+                <div class="row text-center">
+                    <h2 class="leader">HitCounter</h2>
+                </div>
+                <div class="row text-center">
+                    <div class="counter"></div>
+                </div>
+            </div>
+
+            <div class="row text-center bin">
+                <div class="btn btn-lg btn-primary bob">TouchMe</div>
+            </div>
+
+            <div class="row text-center">
+                <input type="text" id="fun" />
+            </div>
+
+        </div>
+    </div>
+
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="js/flipclock.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+
+    <script>
+        $(function () {
+            var tick = 0;
+            $('.bob').on('click', function () {
+                tick = tick + 1;
+                var elem = document.getElementById("fun");
+                elem.value = tick;
+
+            });
+
+        });
+    </script>
+
+    <script>
+        var clock = $('.counter').FlipClock(20, {
+            clockFace: 'Counter'
+        });
+
+        setTimeout(function () {
+            setInterval(function () {
+                clock.decrement(function () {
+                    //                    need a function whose purpose is to check whether it reaches to 0 
+                    //                    if yes then button should be disabled and the user is not allowed to press it 
+
+                });
+            }, 1000);
+        });
+    </script>
+
+</body>
+
+</html>
